@@ -1,0 +1,8 @@
+//ejercicio 1 
+//Escribe una función que encuentre el primer carácter de un cadena de texto que no se repite
+
+function find_char_rep() {
+  alert( 'Hello everyone!' );
+}
+
+
