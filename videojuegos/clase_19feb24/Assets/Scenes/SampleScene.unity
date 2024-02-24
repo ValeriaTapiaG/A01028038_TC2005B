@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pelota: {fileID: 467614636}
-  force: 20
+  force: 27
 --- !u!4 &597651562
 Transform:
   m_ObjectHideFlags: 0
