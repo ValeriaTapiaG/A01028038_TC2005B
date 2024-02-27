@@ -3,26 +3,26 @@
 
 function calcularMedianaYModa(array) {
 
-    let longitud = array.length;
-    let mitad = Math.floor(longitud / 2);
+    let longitud = array.length
+    let mitad = Math.floor(longitud / 2)
 
 
-    let arrayOrdenada = array.slice().sort((a, b) => a - b);
+    let arrayOrdenada = array.slice().sort((a, b) => a - b)
 
     let mediana;
     if (longitud % 2 === 0) {
-        mediana = (arrayOrdenada[mitad - 1] + arrayOrdenada[mitad]) / 2;
+        mediana = (arrayOrdenada[mitad - 1] + arrayOrdenada[mitad]) / 2
     } else {
-        mediana = arrayOrdenada[mitad];
+        mediana = arrayOrdenada[mitad]
     }
 
 
-    let conteo = {};
-    let maxFrecuencia = 0;
-    let moda;
+    let conteo = {}
+    let maxFrecuencia = 0
+    let moda
 
     array.forEach(num => {
-        conteo[num] = (conteo[num] || 0) + 1;
+        conteo[num] = (conteo[num] || 0) + 1
         if (conteo[num] > maxFrecuencia) {
             maxFrecuencia = conteo[num];
             moda = num;

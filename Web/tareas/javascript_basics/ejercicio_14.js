@@ -10,5 +10,5 @@ function esPotenciaDeDos(numero) {
 }
 
 let numero=16
-console.log(esPotenciaDeDos(numero)); 
+console.log(esPotenciaDeDos(numero))
 

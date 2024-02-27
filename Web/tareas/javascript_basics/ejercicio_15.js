@@ -8,13 +8,11 @@ function bubbleSortDesc(array) {
                 array[j]=array[j+1]
                 array[j+1]=temp
             }
-
-
         }
 
     }
     let arraynuevo=array
-    return arraynuevo;
+    return arraynuevo
 }
 
 let array = [3, 4, 7, 1, 9, 2];
