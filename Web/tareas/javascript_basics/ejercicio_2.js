@@ -2,7 +2,7 @@
 
 function bubblesort(array){
 
-    for (let i=array.length;i>=0;i--){
+    for (let i=array.length-1;i>=0;i--){
         for (let j=0;j<array.length;j++){
 
             if (array[j]>array[j+1]){

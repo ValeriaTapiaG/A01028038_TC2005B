@@ -5,7 +5,7 @@ function palindromo(sentence){
     for (let i = 0 ; i < sentence.length/2; i++){
 
         if (sentence[i]!==sentence[sentence.length-i-1]){
-            console.log("no palindromo")
+            //console.log("no palindromo")
 
             return "no es palindromo"
         }
@@ -17,6 +17,6 @@ function palindromo(sentence){
 
     }
 }
-let sentence="amor a roma"
+let sentence="hola"
 
 console.log(palindromo(sentence))

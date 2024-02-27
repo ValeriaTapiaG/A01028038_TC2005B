@@ -13,9 +13,6 @@ function hackerspeak(sentence){
 
     for(let i=0; i<sentence.length;i++){
         
-        
-
-        
 
         let keysdict = Object.keys(dicthacker) //un array con los keys que tiene mi dict
 
@@ -43,6 +40,6 @@ function hackerspeak(sentence){
 
 }
 
-let sentence = 'valeria'
+let sentence = 'javascript es divertido'
 
 console.log(hackerspeak(sentence));
