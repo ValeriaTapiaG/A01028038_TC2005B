@@ -5,6 +5,8 @@ valeria tapia
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class GameController : MonoBehaviour
 {
@@ -17,6 +19,9 @@ public class GameController : MonoBehaviour
 
     public int pointsRight=0;
     // Start is called before the first frame update
+
+    public TMP_Text leftScore;
+    public TMP_Text rightScore;
     void Start()
     {
         StartGame();
@@ -43,8 +48,10 @@ public class GameController : MonoBehaviour
     public void AddPoints(int side){
         if(side == 1){
             pointsLeft++;
+            leftScore.text=pointsLeft.ToString();
         }else{
             pointsRight++;
+            rightScore.text=pointsRight.ToString();
         }
         Destroy(pelota);
         StartGame();
