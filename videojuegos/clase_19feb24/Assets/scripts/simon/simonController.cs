@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SimonController : MonoBehaviour
 {
@@ -9,8 +11,17 @@ public class SimonController : MonoBehaviour
     bool playerTurn = false;
     int index;
 
+    int score=0;
+    [SerializeField] private TMP_Text scoreText;
+
+    float timeDif=0f;
+
+    int level=0;
+
+    [SerializeField] private TMP_Text levelText;
+
     // Start is called before the first frame update
-    void Start()
+    public void StartGame()
     {
         NewGame();
     }
@@ -23,8 +34,12 @@ public class SimonController : MonoBehaviour
 
     void NewGame(){
         sequence.Clear();
+        score=0;
         index = 0;
+        scoreText.text="score: "+ score.ToString();
         AddToSequence();
+        
+
     }
 
     void AddToSequence(){
@@ -36,10 +51,10 @@ public class SimonController : MonoBehaviour
     }
 
     IEnumerator PlaySequence(){
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1-timeDif);
         foreach(int num in sequence){
             buttons[num].GetComponent<SimonButton>().HighLight();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1-timeDif);
         }
         playerTurn = true;
     }
@@ -51,10 +66,21 @@ public class SimonController : MonoBehaviour
                 if(index == sequence.Count){
                     playerTurn = false;
                     index = 0;
+                    score=score+1;
+                    if (score%3==0){
+                        timeDif=timeDif+0.2f;
+                        level=level+1;
+                        levelText.text="level: "+ level.ToString();
+                    }
+                    scoreText.text="score: "+ score.ToString();
+                    
                     AddToSequence();
+
                 }
             } else {
-                NewGame();
+            PlayerPrefs.SetInt("score",score);
+            SceneManager.LoadScene("texto");
+               
             }
         }
     }

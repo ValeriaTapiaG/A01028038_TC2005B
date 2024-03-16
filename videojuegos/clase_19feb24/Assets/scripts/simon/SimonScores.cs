@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -13,7 +14,12 @@ public class SimonScores : MonoBehaviour
     void Start()
     {
         int score = PlayerPrefs.GetInt("score",0);
-        scoreText.text="score"+ score;
+        scoreText.text="score: "+ score;
+        
+    }
+
+    public void StartAgain(){
+        SceneManager.LoadScene("simon");
     }
 
     // Update is called once per frame

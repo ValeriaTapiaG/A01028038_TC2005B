@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/texto.unity
     guid: 58da36ce4cb6e4ca181aaff1f780525c
+  - enabled: 1
+    path: Assets/Scenes/simon.unity
+    guid: 03a5c3739515b428ab966b790522eb0e
   m_configObjects: {}
