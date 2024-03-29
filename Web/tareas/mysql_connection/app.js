@@ -37,9 +37,7 @@ app.get("/api/cards", async (request, response) => {
 
     // The await keyword is used to wait for a Promise. It can only be used inside an async function.
     // The await expression causes async function execution to pause until a Promise is settled (that is, fulfilled or rejected), and to resume execution of the async function after fulfillment. When resumed, the value of the await expression is that of the fulfilled Promise.
-
     connection = await connectToDB();
-
     // The execute method is used to execute a SQL query. It returns a Promise that resolves with an array containing the results of the query (results) and an array containing the metadata of the results (fields).
     const [results, fields] = await connection.execute("select * from card");
 
