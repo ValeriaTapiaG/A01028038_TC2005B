@@ -39,30 +39,49 @@ INSERT INTO Partida (fk_id_jugador, fk_id_jugador2, numero_nivel, fecha_inicio, 
 (10, 1, 1, '2024-01-19', '2024-01-20', 'Clemont');
 
 
-INSERT INTO Carta (fk_id_jugador, fk_id_mazo, nombre_carta, tipo, energia, poder, nivel_vida) VALUES
-(1, 1, 'Pikachu', 'Electric', 'Lightning Bolt', 'Thunderbolt', 60),
-(2, 2, 'Starmie', 'Water', 'Water Drop', 'Hydro Pump', 70),
-(3, 3, 'Onix', 'Rock', 'Rock Throw', 'Earthquake', 80),
-(4, 4, 'Eevee', 'Normal', 'Tackle', 'Swift', 50),
-(5, 5, 'Meowth', 'Normal', 'Scratch', 'Pay Day', 40),
-(6, 6, 'Koffing', 'Poison', 'Gas', 'Smog', 50),
-(7, 7, 'Torchic', 'Fire', 'Ember', 'Flamethrower', 60),
-(8, 8, 'Piplup', 'Water', 'Bubble', 'Hydro Cannon', 70),
-(9, 9, 'Fennekin', 'Fire', 'Ember', 'Fire Spin', 60),
-(10, 10, 'Chespin', 'Grass', 'Vine Whip', 'Seed Bomb', 50);
+INSERT INTO TipoCarta (tipo) VALUES
+('Normal'),
+('Fuego'),
+('Agua'),
+('Planta'),
+('Eléctrico'),
+('Tierra'),
+('Volador'),
+('Psíquico'),
+('Roca'),
+('Hielo');
 
 
-INSERT INTO Descarte (fk_id_partida, fk_id_jugador, fk_id_jugador2, fk_id_carta, tipoDescarte, momento_Descarte) VALUES
-(1, 1, 2, 1, 'Descarte inicial', 'Inicio de la partida'),
-(2, 3, 4, 4, 'Descarte por derrota', 'Fin de la partida'),
-(3, 5, 6, 5, 'Descarte por cambio', 'Turno de cambio'),
-(4, 7, 8, 8, 'Descarte por derrota', 'Fin de la partida'),
-(5, 9, 10, 10, 'Descarte por derrota', 'Fin de la partida'),
-(6, 6, 7, 6, 'Descarte por derrota', 'Fin de la partida'),
-(7, 8, 9, 8, 'Descarte por derrota', 'Fin de la partida'),
-(8, 10, 1, 10, 'Descarte por derrota', 'Fin de la partida'),
-(9, 2, 3, 2, 'Descarte por cambio', 'Turno de cambio'),
-(10, 4, 5, 4, 'Descarte por derrota', 'Fin de la partida');
+INSERT INTO Carta (fk_id_jugador, fk_id_mazo, nombre_carta, fk_id_tipo_carta, energia, poder, nivel_vida) VALUES
+(1, 1, 'Pikachu', 5, 'Eléctrico', 'Impactrueno', 60),
+(2, 2, 'Charmander', 2, 'Fuego', 'Ascuas', 50),
+(3, 3, 'Bulbasaur', 4, 'Planta', 'Latigazo', 55),
+(4, 4, 'Squirtle', 3, 'Agua', 'Pistola Agua', 55),
+(5, 5, 'Geodude', 9, 'Roca', 'Roca Afilada', 40),
+(6, 6, 'Abra', 8, 'Psíquico', 'Confusión', 25),
+(7, 7, 'Pidgey', 7, 'Volador', 'Ataque Ala', 40),
+(8, 8, 'Sandshrew', 6, 'Tierra', 'Excavar', 50),
+(9, 9, 'Jynx', 10, 'Hielo', 'Rayo Confuso', 65),
+(10, 10, 'Electabuzz', 5, 'Eléctrico', 'Impactrueno', 65);
+
+INSERT INTO TipoDescarte (tipo) VALUES
+('Descarte inicial'),
+('Descarte por derrota'),
+('Descarte por cambio');
+
+
+
+INSERT INTO Descarte (fk_id_partida, fk_id_jugador, fk_id_jugador2, fk_id_carta, fk_id_tipo_descarte) VALUES
+(1, 1, 2, 1, 1),
+(2, 3, 4, 4, 2),
+(3, 5, 6, 5, 3),
+(4, 7, 8, 8, 2),
+(5, 9, 10, 10, 3),
+(6, 6, 7, 6, 1),
+(7, 8, 9, 8, 2),
+(8, 10, 1, 10, 3),
+(9, 2, 3, 2, 1),
+(10, 4, 5, 4, 2);
 
 
 INSERT INTO Inventario (fk_id_jugador, fk_id_jugador2, fk_id_carta, fk_id_mazo) VALUES
@@ -78,17 +97,30 @@ INSERT INTO Inventario (fk_id_jugador, fk_id_jugador2, fk_id_carta, fk_id_mazo) 
 (10, 1, 10, 5);
 
 
-INSERT INTO Turno (fk_id_partida, fk_id_jugador, fk_id_jugador2, numero_turno, energias, pokemons, accion) VALUES
-(1, 1, 2, 1, 'Electric', 'Pikachu',  'Attack'),
-(2, 3, 4, 1, 'Normal', 'Eevee',  'Attack'),
-(3, 5, 6, 1, 'Normal', 'Meowth',  'Swap'),
-(4, 7, 8, 1, 'Water', 'Piplup',  'Attack'),
-(5, 9, 10, 1, 'Fire', 'Chespin',  'Attack'),
-(6, 6, 7, 2, 'Poison', 'Koffing', 'Attack'),
-(7, 8, 9, 2, 'Fire', 'Fennekin', 'Attack'),
-(8, 10, 1, 2, 'Grass', 'Chespin', 'Attack'),
-(9, 2, 3, 2, 'Water', 'Starmie',  'Attack'),
-(10, 4, 5, 2, 'Normal', 'Meowth', 'Swap');
+INSERT INTO TipoAtaque (tipo_ataque) VALUES
+('Físico'),
+('Especial'),
+('Estado'),
+('Ataque rápido'),
+('Multiturno'),
+('Carga'),
+('Potencia'),
+('Precisión'),
+('Defensa'),
+('Curación');
 
-SELECT * FROM Turno;
+INSERT INTO Turno (fk_id_partida, fk_id_jugador, fk_id_jugador2, fk_id_carta_jugada, fk_id_tipo_ataque, numero_turno) VALUES
+(1, 1, 2, 1, 1, 1),
+(1, 2, 1, 2, 2, 2),
+(1, 1, 2, 3, 3, 3),
+(1, 2, 1, 4, 4, 4),
+(2, 3, 4, 5, 5, 1),
+(2, 4, 3, 6, 6, 2),
+(2, 3, 4, 7, 7, 3),
+(2, 4, 3, 8, 8, 4),
+(3, 5, 6, 9, 9, 1),
+(3, 6, 5, 10, 10, 2);
+
+
+
 
