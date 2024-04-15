@@ -1,0 +1,40 @@
+div{
+    border: 2px solid red;
+    margin: 10px;
+}
+.formato{
+    height: 250px;
+     
+    background-color: pink;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10%;
+    border-style: dashed;
+}
+
+body{
+    margin:0;
+    background-color: burlywood;
+    
+}
+
+h1{
+    margin:0; 
+}
+
+.box{display:flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: space-around;
+    align-content: end;
+}
+
+.box_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
